@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@RestController(value = "/api")
 public class EmployeeController {
 
     @Autowired
@@ -44,4 +44,16 @@ public class EmployeeController {
         this.employeeService.deleteEmployeeById(id);
         return "redirect:/";
     }
+
+//    @PutMapping("{id}")
+//    public Employee update(@Validated @NonNull @PathVariable int id, @RequestBody Employee employee) {
+//        Employee existingEmployee = employeeRepo.findById(id)
+//                .orElseThrow();
+//        existingEmployee.setFirstName(employee.getFirstName());
+//        existingEmployee.setLastName(employee.getLastName());
+//        existingEmployee.setEmail(employee.getEmail());
+//        existingEmployee.setDepartment(employee.getDepartment());
+//        existingEmployee.setContactNo(employee.getContactNo());
+//        return employeeRepo.save(existingEmployee);
+//    }
 }
